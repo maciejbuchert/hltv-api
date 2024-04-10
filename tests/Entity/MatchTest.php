@@ -4,7 +4,7 @@ namespace tests\Entity;
 
 
 use HltvApi\Client;
-use HltvApi\Entity\Match;
+use HltvApi\Entity\MatchEntity;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -18,7 +18,7 @@ class MatchTest extends TestCase
      */
     public function testMatchEntity(array $data, array $expected)
     {
-        $match = new Match($data, new Client());
+        $match = new MatchEntity($data, new Client());
         $this->assertEquals($expected['id'], $match->getId());
         $this->assertEquals($expected['team1'], $match->getTeam1());
         $this->assertEquals($expected['team2'], $match->getTeam2());

@@ -2,9 +2,7 @@
 
 namespace tests\Entity;
 
-
 use HltvApi\Client;
-use HltvApi\Entity\Match;
 use HltvApi\Entity\MatchDetails;
 use PHPUnit\Framework\TestCase;
 

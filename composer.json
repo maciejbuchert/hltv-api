@@ -1,9 +1,9 @@
 {
-  "name": "webrepin/hltv-api",
+  "name": "maciejbuchert/hltv-api",
   "description": "PHP Hltv API Client",
   "keywords": ["csgo","csgoapi", "api", "hltv", "hltv.org", "cs"],
   "type": "library",
-  "homepage": "https://github.com/webrepin/hltv-api",
+  "homepage": "https://github.com/maciejbuchert/hltv-api",
   "license": "MIT",
   "minimum-stability": "stable",
   "authors": [
@@ -11,22 +11,43 @@
       "name": "Konstantin Repin",
       "email": "repin.and.co@gmail.com",
       "homepage": "https://github.com/webrepin"
+    },
+    {
+      "name": "Maciej Buchert",
+      "email": "maciej@buchert.pl",
+      "homepage": "https://github.com/maciejbuchert"
     }
   ],
   "require": {
-    "php": ">=7.0.0",
+    "php": "~8.2",
     "ext-curl": "*",
-    "guzzlehttp/guzzle": "~6.0",
+    "guzzlehttp/guzzle": "^7.5",
     "sunra/php-simple-html-dom-parser": "1.5.2"
   },
   "require-dev": {
-    "phpunit/phpunit": "~5.0",
-    "codeclimate/php-test-reporter": "dev-master"
+    "phpunit/phpunit": "^9.6"
   },
   "suggest": {
     "guzzlehttp/guzzle": "Allows for implementation of the Guzzle HTTP client"
   },
   "autoload": {
-    "psr-0": { "HltvApi\\": "src/" }
+    "psr-4": {
+      "HltvApi\\": "src/HltvApi"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "tests\\": "tests/"
+    }
+  },
+  "scripts": {
+    "test": "phpunit",
+    "check-style": "phpcs -vs src tests",
+    "fix-style": "phpcbf src tests"
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "1.0-dev"
+    }
   }
 }

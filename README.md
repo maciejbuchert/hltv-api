@@ -10,7 +10,7 @@ This is PHP code for parsing Hltv requests.
 It can get actual match-list, get detailed match-info for single match.
 
 3. **What I need to work with it?**
-First of all you need web-server with **PHP 7.0+** ( **PDO** and **cURL** should be enabled). Then look at install section.
+First of all you need web-server with **PHP 8.2+** ( **PDO** and **cURL** should be enabled). Then look at install section.
 
 ### Install
 
@@ -19,7 +19,7 @@ First of all you need web-server with **PHP 7.0+** ( **PDO** and **cURL** should
     ````json
     {
         "require": {
-            "webrepin/hltv-api": "*"
+            "maciejbuchert/hltv-api": "*"
         }
     }
     ````

@@ -2,7 +2,7 @@
 namespace tests;
 
 use HltvApi\Client;
-use HltvApi\Entity\Match;
+use HltvApi\Entity\MatchEntity;
 use HltvApi\Parsers\OngoingParser;
 use HltvApi\Parsers\UpcomingParser;
 use PHPUnit\Framework\TestCase;
@@ -13,10 +13,6 @@ use PHPUnit\Framework\TestCase;
  */
 class ClientTest extends TestCase
 {
-
-    /**
-     * @return \PHPUnit_Framework_MockObject_MockObject
-     */
     public function makeClient()
     {
         $client = $this->getMockBuilder(Client::class)
@@ -36,11 +32,11 @@ class ClientTest extends TestCase
             [OngoingParser::class, [
                     [
                         'id' => 2337403,
-                        'status' => Match::STATUS_ONGOING,
+                        'status' => MatchEntity::STATUS_ONGOING,
                         'team1' => 'fnatic',
                         'team2' => 'Tricked',
                         'url' => '/matches/2337403/fnatic-vs-tricked-ecs-season-8-europe-week-5',
-                        'type' => Match::TYPE_BO3,
+                        'type' => MatchEntity::TYPE_BO3,
                     ],
 
                 ]
@@ -48,11 +44,11 @@ class ClientTest extends TestCase
             [UpcomingParser::class, [
                 [
                     'id' => 2337518,
-                    'status' => Match::STATUS_UPCOMING,
+                    'status' => MatchEntity::STATUS_UPCOMING,
                     'team1' => 'Spirit',
                     'team2' => 'HAVU',
                     'url' => '/matches/2337518/spirit-vs-havu-european-champions-cup',
-                    'type' => Match::TYPE_BO3,
+                    'type' => MatchEntity::TYPE_BO3,
                     'event' => 'European Champions Cup',
                     'timestamp' => 1572464700,
                 ],
