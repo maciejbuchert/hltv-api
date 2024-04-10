@@ -6,7 +6,7 @@ namespace HltvApi\Entity;
  * Class Match
  * @package HltvApi\Entity
  */
-class Match extends Entity
+class MatchEntity extends Entity
 {
 
     const STATUS_UPCOMING   = 1;

@@ -3,8 +3,7 @@
 namespace tests\Wrappers;
 
 use HltvApi\Client;
-use HltvApi\Entity\Entity;
-use HltvApi\Entity\Match;
+use HltvApi\Entity\MatchEntity;
 use HltvApi\Entity\MatchDetails;
 use HltvApi\Wrappers\BaseWrapper;
 use PHPUnit\Framework\TestCase;
@@ -62,14 +61,14 @@ class BaseWrapperTest extends TestCase
     {
         return [
             [
-                'class' => Match::class,
+                'class' => MatchEntity::class,
                 'data' => [
                     ['id' => 1, 'team1' => 't1','team2' => 't2'],
                     ['id' => 2, 'team1' => 'Navi','team2' => 'G2'],
                 ],
                 'expected' => [
-                    new Match(['id' => 1, 'team1' => 't1','team2' => 't2'], new Client()),
-                    new Match(['id' => 2, 'team1' => 'Navi','team2' => 'G2'], new Client()),
+                    new MatchEntity(['id' => 1, 'team1' => 't1','team2' => 't2'], new Client()),
+                    new MatchEntity(['id' => 2, 'team1' => 'Navi','team2' => 'G2'], new Client()),
                 ]
             ],
         ];

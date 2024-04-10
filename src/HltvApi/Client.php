@@ -2,7 +2,7 @@
 namespace HltvApi;
 
 use HltvApi\Entity\Entity;
-use HltvApi\Entity\Match;
+use HltvApi\Entity\MatchEntity;
 use HltvApi\Entity\MatchDetails;
 use HltvApi\Interfaces\Request;
 use HltvApi\Parsers\MatchDetailsParser;
@@ -138,20 +138,20 @@ class Client implements Request
 
     /**
      * Getting an ongoing list of Match objects
-     * @return Match[]|array|null
+     * @return MatchEntity[]|array|null
      * @throws \Exception
      */
     public function ongoing() : array
     {
         $parser = $this->createDataParser(OngoingParser::class, $this->getUrlMatches());
-        return (new BaseWrapper(Match::class, $parser->parse(), $this))->fetchList();
+        return (new BaseWrapper(MatchEntity::class, $parser->parse(), $this))->fetchList();
     }
 
     /**
      * Getting an upcoming list of Match-objects for x days at the scheduler
      *
      * @param int $days
-     * @return Match[]|array|null
+     * @return MatchEntity[]|array|null
      * @throws \Exception
      */
     public function upcoming($days = 2) : array
@@ -159,20 +159,20 @@ class Client implements Request
         /** @var UpcomingParser $parser */
         $parser = $this->createDataParser(UpcomingParser::class, $this->getUrlMatches());
         $parser->setDays($days);
-        return (new BaseWrapper(Match::class, $parser->parse(), $this))->fetchList();
+        return (new BaseWrapper(MatchEntity::class, $parser->parse(), $this))->fetchList();
     }
 
     /**
      * Getting a result list of Match-objects
      *
      * @param int $days
-     * @return Match[]|array|null
+     * @return MatchEntity[]|array|null
      * @throws \Exception
      */
     public function results() : array
     {
         $parser = $this->createDataParser(ResultsParser::class, $this->getUrlResults());
-        return (new BaseWrapper(Match::class, $parser->parse(), $this))->fetchList();
+        return (new BaseWrapper(MatchEntity::class, $parser->parse(), $this))->fetchList();
     }
 
     /**
